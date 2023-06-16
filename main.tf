@@ -17,7 +17,7 @@ locals {
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "3.19.0"
+  version = "5.0.0"
 
   name = local.cluster_name
   cidr = var.vpc_cidr
@@ -50,4 +50,15 @@ module "vpc" {
   }
 
   tags = local.tags
+
+#  # Cloudwatch log group and IAM role will be created
+#  enable_flow_log                      = true
+#  create_flow_log_cloudwatch_log_group = true
+#  create_flow_log_cloudwatch_iam_role  = true
+#
+#  flow_log_max_aggregation_interval         = 60
+#  flow_log_cloudwatch_log_group_name_prefix = "/vpc-flow-logs/"
+#  flow_log_cloudwatch_log_group_name_suffix = "${local.cluster_name}"
+#
+#  vpc_flow_log_tags = local.tags
 }
