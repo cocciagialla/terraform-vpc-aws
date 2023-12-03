@@ -34,3 +34,9 @@ variable "vpc_cidr" {
   type        = string
   default     = ""
 }
+
+variable "create_private_subnets" {
+  description = "Controls if private subnets should be created"
+  type        = bool
+  default     = true
+}
